@@ -1,6 +1,9 @@
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/tshepokotelo95-commits/Fundamental-Pairs-Trading)
+![CI Pipeline](https://github.com/tshepokotelo95-commits/Fundamental-Pairs-Trading/actions/workflows/ci.yml/badge.svg)
 
-# 📊 Relative Value Equity Pairs Trading Framework
+# Relative Value Equity Pairs Trading Framework
+
+[![Python 3.10](https://img.shields.io/badge/python-3.10-blue.svg)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A systematic statistical arbitrage environment built to exploit structural pricing dislocations within closely coupled corporate duopolies. This framework implements an Engle-Granger two-step cointegration pipeline to bypass superficial price correlations, isolating pure fundamental relative value anomalies.
 
@@ -8,7 +11,7 @@ A systematic statistical arbitrage environment built to exploit structural prici
 
 ## 🏛️ Investment Thesis: The Visa (V) vs. Mastercard (MA) Duopoly
 
-Trading individual equity names exposes capital to severe macro, interest rate, and idiosyncratic sector risks. This framework targets a structural duopoly—**Visa (V)** and **Mastercard (MA)**—to mitigate broad market beta and harvest clean alpha.
+Trading individual equity names exposes capital to severe macro, interest rate, and idiosyncratic sector risks. This framework targets a structural duopoly—Visa (V) and Mastercard (MA)—to mitigate broad market beta and harvest clean alpha.
 
 ### 1. Economic Moat & Structural Alignment
 * **Network Parallelism:** Both corporations operate near-identical capital-light payment processing tollbooths, scaling synchronously with global consumption and inflation layers.
@@ -25,14 +28,17 @@ The model abandons naive chart-pattern tracking in favor of a mathematically rig
 
 ### 1. Engle-Granger Two-Step Cointegration Test
 To prevent entering "spurious regressions" (assets that look correlated but have zero economic linkage), the engine continuously verifies the stationarity of the spread:
-* **OLS Regression Analysis:** Runs an Ordinary Least Squares (OLS) regression of $Asset\_A$ against $Asset\_B$ to dynamically calculate the structural **Hedge Ratio ($\beta$)**.
-* **Augmented Dickey-Fuller (ADF):** Tests the residual spread tracking error for stationarity. If the $p$-value falls below 0.05, the relationship is fundamentally verified as mean-reverting.
+* **OLS Regression Analysis:** Runs an Ordinary Least Squares (OLS) regression of $Asset_A$ against $Asset_B$ to dynamically calculate the structural Hedge Ratio ($\beta$).
+* **Augmented Dickey-Fuller (ADF):** Tests the residual spread tracking error for stationarity. If the p-value falls below 0.05, the relationship is fundamentally verified as mean-reverting.
 
-### 2. Dynamic Z-Score Signal Generation
-The engine tracks the rolling historical spread to isolate operational entry and exit signals:
+---
 
-$$\text{Spread} = \text{Price}_A - (\beta \times \text{Price}_B)$$
+## 🚀 Quickstart
 
-* **Long Signal ($Z < -2.0$):** $Asset\_A$ is fundamentally undervalued relative to $Asset\_B$. The strategy buys $Asset\_A$ and shorts $Asset\_B$ based on the hedge ratio.
-* **Short Signal ($Z > +2.0$):** $Asset\_A$ is overvalued relative to $Asset\_B$. The strategy shorts $Asset\_A$ and buys $Asset\_B$.
-* **Risk Mitigation Loop:** Includes structured $z$-score exit targets ($Z = 0.0$) to capture maximum premium reversion, backed by systemic volatility filters to detect permanent structural breaks in the pair's underlying corporate fundamentals.
+```bash
+# Clone repository
+git clone [https://github.com/tshepokotelo95-commits/Fundamental-Pairs-Trading.git](https://github.com/tshepokotelo95-commits/Fundamental-Pairs-Trading.git)
+cd Fundamental-Pairs-Trading
+
+# Run pairs trading framework
+python src/pairs_framework.py
